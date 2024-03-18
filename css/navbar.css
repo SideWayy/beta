@@ -1,0 +1,138 @@
+/* Header / Navigation Bar */
+nav {
+  position: relative;
+  border: solid #0df 3px;
+  border-radius: 10px;
+  background: #dddd;
+  margin: 10px;
+  padding: 5px 40px;
+}
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+nav ul li.logo {
+  font-family: 'Montserrat', sans-serif;
+  flex: 1;
+}
+nav ul li.logo img {
+  width: 64px;
+}
+nav ul li a {
+  color: #000;
+  font-size: 18px;
+  transition: 0.4s;
+}
+nav ul li:hover a {
+  color: #33ffff;
+}
+/* Other Links */
+.link {
+  position: relative;
+  width: auto;
+  margin: 0 16px;
+  text-align: center;
+  order: 3;
+}
+.link:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: -5px;
+  height: 2px;
+  width: 100%;
+  background: #33ffff;
+  opacity: 0;
+  transition: all 0.2s linear;
+}
+.link button a {
+  color: #000;
+}
+.link:hover:after {
+  opacity: 1;
+  bottom: -2px;
+}
+/* Main Link */
+.mainlink {
+  position: relative;
+  width: auto;
+  margin: 0 16px;
+  text-align: center;
+  order: 3;
+}
+.mainlink button h1 {
+  padding: 5px;
+  color: #000;
+}
+/* Menu Button */
+.menu-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 64px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.menu-gfx {
+  width: 50px;
+  height: 6px;
+  background: #000;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+.menu-gfx::before,
+.menu-gfx::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 6px;
+  background: #000;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+.menu-gfx::before {
+  transform: translateY(-16px);
+}
+.menu-gfx::after {
+  transform: translateY(16px);
+}
+/* Menu Button Animation */
+.menu-btn.open .menu-gfx {
+  transform: translateX(-50px);
+  background: transparent;
+  box-shadow: none;
+}
+.menu-btn.open .menu-gfx::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+.menu-btn.open .menu-gfx::after {
+  transform: rotate(-45deg) translate(35px, 35px);
+}
+.menu-btn {
+  display: none;
+}
+/* "RESPONSIVE" design */
+@media (max-width: 1080px) {
+  .menu-btn {
+    display: flex;
+  }
+  .links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  .links.active {
+    display: flex;
+  }
+  .link {
+    margin: 10px;
+  }
+  .mainlink {
+    margin: 10px;
+  }
+}
